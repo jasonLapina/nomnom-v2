@@ -1,5 +1,6 @@
 import { Box, Grid, Image, Text } from "@chakra-ui/react";
 import MyHeading from "../../shared/UI/MyHeading";
+import Link from "next/link";
 
 const featuredCategories = [
   {
@@ -36,6 +37,8 @@ function FeaturedCategories() {
             borderRadius='20px'
             transition='all .4s'
             _hover={{ transform: "translateY(-16px)" }}
+            as={Link}
+            href={`/categories/${item.text}`}
           >
             <Image
               src={item.image}

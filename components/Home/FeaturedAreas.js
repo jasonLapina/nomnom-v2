@@ -1,5 +1,6 @@
 import { Box, Grid, Image, Text } from "@chakra-ui/react";
 import MyHeading from "../../shared/UI/MyHeading";
+import Link from "next/link";
 function FeaturedAreas() {
   const areas = [
     {
@@ -48,6 +49,8 @@ function FeaturedAreas() {
             }}
             key={item.str}
             pos='relative'
+            as={Link}
+            href={`/area/${item.str}`}
           >
             <Text
               top='16px'
