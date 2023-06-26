@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import Link from "next/link";
+import Cart from "../Cart/Cart";
 
 export const navItems = [
   { text: "Home", path: "/" },
@@ -79,6 +80,9 @@ function Navbar() {
             </MenuItem>
           </MenuList>
         </Menu>
+        <Box ml='auto'>
+          <Cart />
+        </Box>
       </Box>
     </Box>
   );

@@ -1,6 +1,8 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Layout from "../shared/UI/Layout";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { Provider } from "react-redux";
+import store from "../store/cart";
 
 const chakraTheme = extendTheme({
   components: {
@@ -18,9 +20,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={chakraTheme}>
       <QueryClientProvider client={client}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Provider store={store}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </Provider>
       </QueryClientProvider>
     </ChakraProvider>
   );

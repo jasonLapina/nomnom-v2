@@ -37,6 +37,7 @@ export async function getStaticProps({ params }) {
       title: item.strMeal,
       image: item.strMealThumb,
       id: item.idMeal,
+      price: Number(item.idMeal.slice(0, 2)),
     };
   });
 

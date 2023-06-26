@@ -12,9 +12,16 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import MyBtn from "../../shared/UI/MyBtn";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/cart";
 
 function MealItem({ meal }) {
-  const price = meal.id.slice(0, 2);
+  const dispatch = useDispatch();
+
+  const addToCartHandler = () => {
+    // dispatch(addToCart(meal));
+    dispatch(addToCart(meal));
+  };
 
   return (
     <Card maxW='sm'>
@@ -44,12 +51,14 @@ function MealItem({ meal }) {
       <CardFooter>
         <HStack w='100%' justifyContent='space-between'>
           <ButtonGroup spacing='2'>
-            <MyBtn bgColor='salmon'>Add to cart</MyBtn>
+            <MyBtn onClick={addToCartHandler} bgColor='salmon'>
+              Add to cart
+            </MyBtn>
             <MyBtn variant='outline' borderColor='salmon'>
               Buy now
             </MyBtn>
           </ButtonGroup>
-          <Text fontSize='24px'>${price}</Text>
+          <Text fontSize='24px'>${meal.price}</Text>
         </HStack>
       </CardFooter>
     </Card>

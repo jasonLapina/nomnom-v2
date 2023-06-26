@@ -9,11 +9,12 @@ import { useState } from "react";
 
 const dummyMeal = {
   idMeal: "54",
-  strMeal: "Medyo masarap",
+  strMeal: "Chicken Adobo",
   strMealThumb:
     "https://www.seriouseats.com/thmb/uc8nb040OwgXekR9obuhEqm8WoI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__10__20191023-chicken-adobo-vicky-wasik-19-12ce105a2e1a44dfb1e2673775118064.jpg",
   strCategory: "Chicken",
   strArea: "Filipino",
+  price: "54",
 };
 
 function RandomMeal() {
@@ -21,7 +22,10 @@ function RandomMeal() {
 
   const randomizeHandler = async () => {
     const { data } = await axiosInstance.get("random.php");
-    const randomMeal = data.meals[0];
+    const randomMeal = {
+      ...data.meals[0],
+      price: data.meals[0].idMeal.slice(0, 2),
+    };
     setMeal(randomMeal);
   };
 
@@ -38,9 +42,8 @@ function RandomMeal() {
           <Text
             fontSize='48px'
             fontWeight='bold'
-            pos='absolute'
             textShadow='2px 2px white'
-            left='-48px'
+            mb='16px'
           >
             {meal.strMeal}
           </Text>
@@ -53,13 +56,14 @@ function RandomMeal() {
             py='8px'
             borderRadius='20px'
             pos='absolute'
-            left='-80px'
-            top='80px'
+            left='-24px'
+            bottom='0'
           >
-            ${meal.idMeal.slice(0, 2)}
+            ${meal.price}
           </Box>
 
           <Image
+            mx='auto'
             maxW='600px'
             src={meal.strMealThumb}
             alt={meal.strMeal}
