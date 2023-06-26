@@ -22,7 +22,7 @@ const featuredCategories = [
 
 function FeaturedCategories() {
   return (
-    <Box>
+    <Box id='featuredCategories'>
       <MyHeading>Featured Categories</MyHeading>
       <Grid
         justifyItems='center'

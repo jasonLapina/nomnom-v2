@@ -17,9 +17,21 @@ function HeroTxt() {
       </Text>
       <HStack gap='16px' mt='40px'>
         {/* <Button>Discover</Button> */}
-        <MyBtn bgColor='salmon'>Discover</MyBtn>
-        <MyBtn borderColor='salmon' variant='outline'>
-          Learn more
+        <MyBtn bgColor='salmon'>Sign Up</MyBtn>
+        <MyBtn
+          onClick={() =>
+            window.scrollTo({
+              behavior: "smooth",
+              top:
+                document
+                  .getElementById("featuredCategories")
+                  .getBoundingClientRect().top - 80,
+            })
+          }
+          borderColor='salmon'
+          variant='outline'
+        >
+          Discover
         </MyBtn>
       </HStack>
       <HeroCustomers />

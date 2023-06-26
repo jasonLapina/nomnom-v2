@@ -34,7 +34,7 @@ function RandomMeal() {
   };
 
   return (
-    <Box mt='40px'>
+    <Box>
       <MyHeading>Can&apos;t Decide?</MyHeading>
 
       <Text fontSize='22px' textAlign='center'>
@@ -57,7 +57,6 @@ function RandomMeal() {
             w='fit-content'
             transform='translateX(40px)'
             px='16px'
-            py='8px'
             borderRadius='20px'
             pos='absolute'
             right='24px'

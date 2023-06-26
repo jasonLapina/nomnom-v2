@@ -1,14 +1,16 @@
-import { Box, Grid, Image, Text } from "@chakra-ui/react";
+import { Box, Grid, HStack, Icon, Image, Text } from "@chakra-ui/react";
 import MyHeading from "../../shared/UI/MyHeading";
-import { useState } from "react";
-import { transform } from "framer-motion";
+
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/cart";
 
 const featuredFood = [
   {
-    title: "Baked salmon with fennel & tomatoes",
-    image: "https://www.themealdb.com/images/media/meals/1548772327.jpg",
-    id: "52959",
-    price: 52,
+    title: "Fresh sardines",
+    image: "https://www.themealdb.com/images/media/meals/nv5lf31628771380.jpg",
+    id: "53061",
+    price: 53,
   },
   {
     title: "Cajun spiced fish tacos",
@@ -55,6 +57,10 @@ const featuredFood = [
 ];
 
 function FeaturedFood() {
+  const dispatch = useDispatch();
+
+  const addHandler = (item) => dispatch(addToCart(item));
+
   return (
     <Box>
       <MyHeading>Featured Food</MyHeading>
@@ -65,41 +71,68 @@ function FeaturedFood() {
         gridTemplateColumns='repeat(4,1fr)'
       >
         {featuredFood.map((item) => (
-          <Box
-            role='group'
-            transition='all .4s'
-            cursor='pointer'
-            pos='relative'
-            key={item.id}
-            _hover={{
-              transform: "translateY(-8px)",
-            }}
-          >
+          <Box role='group' transition='all .4s' pos='relative' key={item.id}>
             <Image
               borderRadius='10px'
               alt={item.title}
               src={item.image}
               w='320px'
               h='240px'
-              boxShadow='8px 8px bisque'
-              _hover={{
+              boxShadow='8px 8px salmon'
+              _groupHover={{
                 filter: "brightness(.6)",
               }}
             />
-            <Text
-              transition='all .4s'
-              fontSize='18px'
-              color='white'
-              _groupHover={{
-                visibility: "visible",
-                transform: "translateY(-40px)",
-              }}
+
+            <Box
+              bgColor='RGBA(0,0,0,.24)'
               pos='absolute'
-              visibility='hidden'
-              ml='4px'
-              textShadow='1px 1px black'
+              top='50%'
+              transform='translateY(-50%) scaleX(0)'
+              transformOrigin='left'
+              left='4px'
+              transition='all .4s'
+              px='16px'
+              borderRadius='10px'
+              _groupHover={{
+                transform: "translateY(-50%) scaleX(1)",
+              }}
             >
-              {item.title}
+              <Text
+                transition='all .4s'
+                fontSize='18px'
+                color='white'
+                ml='4px'
+                textShadow='1px 1px black'
+                zIndex={4}
+                marginBottom='16px'
+              >
+                {item.title}
+              </Text>
+
+              <Icon
+                bgColor='salmon'
+                p='8px'
+                borderRadius='full'
+                fontSize='56px'
+                as={AiOutlineShoppingCart}
+                color='white'
+                cursor='pointer'
+                onClick={() => addHandler(item)}
+              />
+            </Box>
+            <Text
+              fontSize='24px'
+              w='fit-content'
+              borderRadius='20px'
+              px='32px'
+              bgColor='bisque'
+              pos='absolute'
+              top='0px'
+              left='-12px'
+              transform='rotate(-20deg)'
+            >
+              ${item.price}
             </Text>
           </Box>
         ))}
