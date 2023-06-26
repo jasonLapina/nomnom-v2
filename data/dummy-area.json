@@ -1,0 +1,110 @@
+[
+  {
+    "strArea": "American",
+    "image": "https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg"
+  },
+  {
+    "strArea": "British",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"
+  },
+  {
+    "strArea": "Canadian",
+    "image": "https://www.worldatlas.com/img/flag/ca-flag.jpg"
+  },
+  {
+    "strArea": "Chinese",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/255px-Flag_of_the_People%27s_Republic_of_China.svg.png"
+  },
+  {
+    "strArea": "Croatian",
+    "image": "https://cdn.britannica.com/06/6206-004-14730C28/Flag-Croatia.jpg"
+  },
+  {
+    "strArea": "Dutch",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/800px-Flag_of_the_Netherlands.svg.png"
+  },
+  {
+    "strArea": "Egyptian",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/2560px-Flag_of_Egypt.svg.png"
+  },
+  {
+    "strArea": "Filipino",
+    "image": "https://cdn.britannica.com/73/3473-004-6E573BFA/Flag-Philippines.jpg"
+  },
+  {
+    "strArea": "French",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1200px-Flag_of_France.svg.png"
+  },
+  {
+    "strArea": "Greek",
+    "image": "https://cdn.britannica.com/49/1049-004-AE4BAD3E/Flag-Greece.jpg"
+  },
+  {
+    "strArea": "Indian",
+    "image": "https://cdn.britannica.com/97/1597-004-05816F4E/Flag-India.jpg"
+  },
+  {
+    "strArea": "Irish",
+    "image": "https://cdn.britannica.com/33/1733-004-5BA407D6/FLAG-Ireland.jpg"
+  },
+  {
+    "strArea": "Italian",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/800px-Flag_of_Italy.svg.png"
+  },
+  {
+    "strArea": "Jamaican",
+    "image": "https://cdn.britannica.com/20/5120-004-3E9D869E/Flag-Jamaica.jpg"
+  },
+  {
+    "strArea": "Japanese",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/800px-Flag_of_Japan.svg.png"
+  },
+  {
+    "strArea": "Kenyan",
+    "image": "https://cdn.britannica.com/15/15-004-B5D6BF80/Flag-Kenya.jpg"
+  },
+  {
+    "strArea": "Malaysian",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Flag_of_Malaysia.svg/2560px-Flag_of_Malaysia.svg.png"
+  },
+  {
+    "strArea": "Mexican",
+    "image": "https://cdn.britannica.com/73/2573-004-29818847/Flag-Mexico.jpg"
+  },
+  {
+    "strArea": "Moroccan",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Morocco_%28large_stroke%29.svg/1200px-Flag_of_Morocco_%28large_stroke%29.svg.png"
+  },
+  {
+    "strArea": "Polish",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/1200px-Flag_of_Poland.svg.png"
+  },
+  {
+    "strArea": "Portuguese",
+    "image": "https://img.freepik.com/free-vector/illustration-portugal-flag_53876-18170.jpg"
+  },
+  {
+    "strArea": "Russian",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/800px-Flag_of_Russia.svg.png"
+  },
+  {
+    "strArea": "Spanish",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Bandera_de_Espa%C3%B1a.svg"
+  },
+  {
+    "strArea": "Thai",
+    "image": "https://cdn.britannica.com/38/4038-004-111388C2/Flag-Thailand.jpg"
+  },
+  {
+    "strArea": "Tunisian",
+    "image": "https://cdn.britannica.com/41/3041-004-F1D6DEFC/Flag-Tunisia.jpg"
+  },
+  {
+    "strArea": "Turkish",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/800px-Flag_of_Turkey.svg.png"
+  },
+  {
+    "strArea": "Vietnamese",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1200px-Flag_of_Vietnam.svg.png"
+  }
+]
