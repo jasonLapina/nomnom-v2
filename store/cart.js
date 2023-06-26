@@ -15,6 +15,9 @@ const cartSlice = createSlice({
         };
       } else state.push({ ...action.payload, quantity: 1 });
     },
+    clearCart(state) {
+      return (state = []);
+    },
   },
 });
 
@@ -38,6 +41,6 @@ const store = configureStore({
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, clearCart } = cartSlice.actions;
 export const { addOrder } = orderSlice.actions;
 export default store;

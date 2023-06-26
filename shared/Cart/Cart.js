@@ -15,9 +15,13 @@ import {
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import CartItems from "./CartItems";
 import MyBtn from "../UI/MyBtn";
+import { useDispatch } from "react-redux";
+import { clearCart } from "../../store/cart";
 
 function Cart() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const dispatch = useDispatch();
+  const clearCartHandler = () => dispatch(clearCart());
 
   return (
     <>
@@ -52,7 +56,7 @@ function Cart() {
               <Button
                 _hover={{ borderColor: "red" }}
                 variant='outline'
-                onClick={onClose}
+                onClick={clearCartHandler}
               >
                 Clear cart
               </Button>
