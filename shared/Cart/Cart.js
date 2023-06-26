@@ -11,21 +11,35 @@ import {
   Icon,
   Button,
   HStack,
+  Circle,
 } from "@chakra-ui/react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import CartItems from "./CartItems";
 import MyBtn from "../UI/MyBtn";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../../store/cart";
 
 function Cart() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const dispatch = useDispatch();
   const clearCartHandler = () => dispatch(clearCart());
+  const cart = useSelector((state) => state.cart);
 
   return (
     <>
-      <Box>
+      <Box pos='relative'>
+        {cart.length > 0 && (
+          <Circle
+            color='white'
+            bgColor='black'
+            pos='absolute'
+            px='8px'
+            right='-8px'
+            top='-12px'
+          >
+            {cart.length}
+          </Circle>
+        )}
         <Icon
           color='salmon'
           fontSize='32px'
