@@ -3,13 +3,15 @@ import FeaturedCategories from "../components/Home/FeaturedCategories";
 import RandomMeal from "../components/Home/RandomMeal";
 import FeaturedAreas from "../components/Home/FeaturedAreas";
 import { VStack } from "@chakra-ui/react";
+import FeaturedFood from "../components/Home/FeaturedFood";
 
 export default function Home() {
   return (
-    <VStack alignItems='initial' gap='80px'>
+    <VStack alignItems='initial' gap='120px'>
       <Hero />
       <FeaturedCategories />
       <FeaturedAreas />
+      <FeaturedFood />
       <RandomMeal />
     </VStack>
   );
