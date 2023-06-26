@@ -5,7 +5,7 @@ const aboutUs = ["Mission", "Vision", "Awards", "Our Team"];
 
 function about() {
   return (
-    <Box mt='-40px'>
+    <Box>
       <MyHeading>About us</MyHeading>
       <Grid alignItems='center' rowGap='40px' gridTemplateColumns='1fr 1fr'>
         {aboutUs.map((item) => (
