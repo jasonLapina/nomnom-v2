@@ -18,6 +18,7 @@ import CartItems from "./CartItems";
 import MyBtn from "../UI/MyBtn";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../../store/cart";
+import Link from "next/link";
 
 function Cart() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -66,7 +67,14 @@ function Cart() {
 
           <DrawerFooter>
             <HStack gap='24px'>
-              <MyBtn bgColor='salmon'>Checkout</MyBtn>
+              <MyBtn
+                onClick={onClose}
+                as={Link}
+                href='/checkout'
+                bgColor='salmon'
+              >
+                Checkout
+              </MyBtn>
               <Button
                 _hover={{ borderColor: "red" }}
                 variant='outline'
