@@ -1,9 +1,11 @@
-import { Box, Icon, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, Icon, Image, Text, VStack } from "@chakra-ui/react";
 import MyHeading from "../../shared/UI/MyHeading";
 
 import axiosInstance from "../../shared/axiosInstance";
 import MyBtn from "../../shared/UI/MyBtn";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/cart";
 
 const dummyMeal = {
   id: "54",
@@ -31,6 +33,12 @@ function RandomMeal() {
     setMeal(randomMeal);
   };
 
+  const dispatch = useDispatch();
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(meal));
+  };
+
   return (
     <Box>
       <MyHeading>Can&apos;t Decide?</MyHeading>
@@ -46,8 +54,13 @@ function RandomMeal() {
             fontWeight='bold'
             textShadow='2px 2px white'
             mb='16px'
+            bgColor='salmon'
+            borderRadius='10px'
+            px='16px'
+            py='8px'
+            maxW='600px'
           >
-            {meal.title}
+            {meal.title.trim()}
           </Text>
           <Box
             fontSize='32px'
@@ -58,7 +71,7 @@ function RandomMeal() {
             borderRadius='20px'
             pos='absolute'
             left='-80px'
-            top='80px'
+            bottom='400px'
           >
             ${meal.price}
           </Box>
@@ -96,9 +109,15 @@ function RandomMeal() {
               <strong>Area</strong>: {meal.area}
             </Text>
           </VStack>
-          <MyBtn pos='absolute' right='8px' bottom='8px' bgColor='salmon'>
-            Add to cart
-          </MyBtn>
+
+          <HStack pos='absolute' right='8px' bottom='8px'>
+            <MyBtn onClick={addToCartHandler} bgColor='salmon'>
+              Add to cart
+            </MyBtn>
+            <MyBtn color='salmon' borderColor='salmon' variant='outline'>
+              Buy now
+            </MyBtn>
+          </HStack>
         </Box>
         <MyBtn
           onClick={randomizeHandler}

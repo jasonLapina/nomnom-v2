@@ -1,33 +1,98 @@
-import { Box, Grid, HStack, Heading, Icon, Text } from "@chakra-ui/react";
-import { BsFacebook, BsDiscord, BsTwitter, BsYoutube } from "react-icons/bs";
-
-const socIcons = [
-  { icon: BsFacebook, color: "facebook.500" },
-  { icon: BsDiscord, color: "#7289da" },
-  { icon: BsTwitter, color: "twitter.500" },
-  { icon: BsYoutube, color: "red.500" },
-];
+import {
+  Box,
+  Grid,
+  HStack,
+  Heading,
+  Icon,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
+import { BsFacebook, BsTwitter, BsYoutube, BsDiscord } from "react-icons/bs";
 
 function Footer() {
   return (
-    <Box minH='200px' mt='120px' w='100%' borderTop='solid 1px RGBA(0,0,0,.5)'>
+    <Box bgColor='bisque' borderTop='solid 1px RGBA(0,0,0,.24)' mt='160px'>
       <Grid
+        gridTemplateColumns={{
+          base: "1fr",
+          sm: "1fr 1fr",
+          lg: "1.5fr repeat(4,1fr)",
+        }}
+        maxW='1340px'
+        px='24px'
         mx='auto'
-        maxW='1440px'
-        gridTemplateColumns='1.5fr repeat(4,1fr)'
-        gap='16px'
-        py='16px'
+        py='40px'
+        rowGap='40px'
+        justifyItems='center'
+        textAlign={{ base: "center", lg: "left" }}
       >
-        <Box>
-          <Heading color='salmon'>NomNom</Heading>
-          <HStack gap='16px'>
-            {socIcons.map((item, i) => (
-              <Icon fontSize='32px' key={i} as={item.icon} color={item.color} />
-            ))}
+        <Box
+          gridColumn={{ base: "span 1", sm: "span 2", lg: "span 1" }}
+          mt='-24px'
+          mb={{ base: "40px", lg: "0px" }}
+          display='grid'
+          justifyItems='center'
+        >
+          <Heading color='salmon' fontSize='56px' mb='40px'>
+            NomNom
+          </Heading>
+          <HStack fontSize='32px' gap='24px'>
+            <Icon cursor='pointer' as={BsFacebook} color='facebook.500' />
+            <Icon cursor='pointer' as={BsTwitter} color='twitter.500' />
+            <Icon cursor='pointer' as={BsYoutube} color='red.500' />
+            <Icon cursor='pointer' color='#7289da' as={BsDiscord} />
           </HStack>
-          <Text pr='40px' mt='24px'>
-            Copyright © 2022 by NomNom, Inc. All rights reserved.
+          <Text
+            textAlign='center'
+            mt='40px'
+            opacity='.7'
+            fontSize='14px'
+            px='24px'
+          >
+            Copyright © 2023 by Bag-O, Inc. All rights reserved.{" "}
           </Text>
+        </Box>
+        <Box>
+          <Heading fontSize='20px' opacity='.6' mb='40px'>
+            Contact us
+          </Heading>
+          <Box opacity='.7'>
+            <Text as='address' mb='40px'>
+              Santa Rosa, Laguna. Tabi tabi st., jan-jan lang building.
+            </Text>
+            <Text>+(63) 9563090839</Text>
+            <a>Bag-O@bagomail.com</a>
+          </Box>
+        </Box>
+        <Box>
+          <Heading fontSize='20px' opacity='.6' mb='40px'>
+            About
+          </Heading>
+          <VStack opacity='.7' alignItems='left' gap='24px'>
+            <Text>About us</Text>
+            <Text>Awards</Text>
+            <Text>Blog</Text>
+          </VStack>
+        </Box>
+        <Box>
+          <Heading fontSize='20px' opacity='.6' mb='40px'>
+            Company
+          </Heading>
+          <VStack opacity='.7' alignItems='left' gap='24px'>
+            <Text>Business</Text>
+            <Text>Sellers</Text>
+            <Text>Careers</Text>
+          </VStack>
+        </Box>
+        <Box>
+          <Heading fontSize='20px' opacity='.6' mb='40px'>
+            Resources
+          </Heading>
+          <VStack opacity='.7' alignItems='left' gap='24px'>
+            <Text>Directory</Text>
+            <Text>Help center</Text>
+            <Text>Privacy & terms</Text>
+          </VStack>
         </Box>
       </Grid>
     </Box>

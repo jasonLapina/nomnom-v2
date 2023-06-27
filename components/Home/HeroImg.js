@@ -10,6 +10,7 @@ function HeroImg() {
     <Box>
       {dummyImages.map((item, i) => (
         <Image
+          boxShadow='2px 4px 4px RGBA(0,0,0,.24)'
           src={item}
           key={item}
           alt={item}

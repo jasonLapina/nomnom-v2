@@ -20,7 +20,7 @@ function HeroCustomers() {
             key={i}
             alt='random user'
             w='64px'
-            border='4px solid white'
+            border='4px solid bisque'
             ml='-32px'
           />
         ))}
