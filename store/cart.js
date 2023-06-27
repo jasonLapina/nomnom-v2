@@ -18,6 +18,28 @@ const cartSlice = createSlice({
     clearCart(state) {
       return (state = []);
     },
+    addOneMore(state, action) {
+      const existingItem = state.find((item) => item.id === action.payload.id);
+      const existingIndex = state.indexOf(existingItem);
+      state[existingIndex] = {
+        ...existingItem,
+        quantity: existingItem.quantity + 1,
+        price: existingItem.price + action.payload.price,
+      };
+    },
+    subtractOne(state, action) {
+      const existingItem = state.find((item) => item.id === action.payload.id);
+      const existingIndex = state.indexOf(existingItem);
+      if (existingItem.quantity === 1)
+        return (state = state.filter((item) => item.id !== action.payload.id));
+
+      state[existingIndex] = {
+        ...existingItem,
+        quantity: existingItem.quantity - 1,
+        price:
+          existingItem.price - action.payload.price / existingItem.quantity,
+      };
+    },
   },
 });
 
@@ -41,6 +63,7 @@ const store = configureStore({
   },
 });
 
-export const { addToCart, clearCart } = cartSlice.actions;
+export const { addToCart, clearCart, addOneMore, subtractOne } =
+  cartSlice.actions;
 export const { addOrder } = orderSlice.actions;
 export default store;

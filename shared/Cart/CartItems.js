@@ -1,9 +1,26 @@
+import { AddIcon, Icon, MinusIcon } from "@chakra-ui/icons";
 import { Box, HStack, Heading, Text, VStack } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import {
+  BsFillCartPlusFill,
+  BsFillCartDashFill,
+  BsFillCartXFill,
+} from "react-icons/bs";
+import { addOneMore, subtractOne } from "../../store/cart";
 function CartItems() {
   const cartItems = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   if (cartItems.length === 0) return <Heading>Your cart is empty.</Heading>;
+
+  const addHandler = (item) => {
+    dispatch(addOneMore(item));
+  };
+
+  const subtractHandler = (item) => {
+    dispatch(subtractOne(item));
+  };
 
   return (
     <VStack gap='24px'>
@@ -17,8 +34,22 @@ function CartItems() {
           borderBottom='solid 1px gray'
           paddingBottom='8px'
         >
-          <Text pr='56px'>{item.title}</Text>
-          <Text>x{item.quantity}</Text>
+          <Text w='120px'>{item.title}</Text>
+          <HStack>
+            <Icon
+              cursor='pointer'
+              as={item.quantity === 1 ? BsFillCartXFill : BsFillCartDashFill}
+              color='red.500'
+              onClick={() => subtractHandler(item)}
+            />
+            <Text>x{item.quantity}</Text>
+            <Icon
+              onClick={() => addHandler(item)}
+              cursor='pointer'
+              color='green.500'
+              as={BsFillCartPlusFill}
+            />
+          </HStack>
           <Text fontWeight='bold' ml='auto'>
             {item.price}
           </Text>
