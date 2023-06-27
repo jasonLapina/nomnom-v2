@@ -6,6 +6,7 @@ import MyBtn from "../../shared/UI/MyBtn";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/cart";
+import { useRouter } from "next/router";
 
 const dummyMeal = {
   id: "54",
@@ -37,6 +38,13 @@ function RandomMeal() {
 
   const addToCartHandler = () => {
     dispatch(addToCart(meal));
+  };
+
+  const router = useRouter();
+
+  const buyNowHandler = () => {
+    dispatch(addToCart(meal));
+    router.push("/checkout");
   };
 
   return (
@@ -114,7 +122,12 @@ function RandomMeal() {
             <MyBtn onClick={addToCartHandler} bgColor='salmon'>
               Add to cart
             </MyBtn>
-            <MyBtn color='salmon' borderColor='salmon' variant='outline'>
+            <MyBtn
+              onClick={buyNowHandler}
+              color='salmon'
+              borderColor='salmon'
+              variant='outline'
+            >
               Buy now
             </MyBtn>
           </HStack>

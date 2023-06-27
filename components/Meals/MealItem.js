@@ -13,13 +13,20 @@ import {
 import MyBtn from "../../shared/UI/MyBtn";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/cart";
+import { useRouter } from "next/router";
 
 function MealItem({ meal }) {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const addToCartHandler = () => {
     // dispatch(addToCart(meal));
     dispatch(addToCart(meal));
+  };
+
+  const buyNowHandler = () => {
+    dispatch(addToCart(meal));
+    router.push("/checkout");
   };
 
   return (
@@ -53,7 +60,11 @@ function MealItem({ meal }) {
             <MyBtn onClick={addToCartHandler} bgColor='salmon'>
               Add to cart
             </MyBtn>
-            <MyBtn variant='outline' borderColor='salmon'>
+            <MyBtn
+              onClick={buyNowHandler}
+              variant='outline'
+              borderColor='salmon'
+            >
               Buy now
             </MyBtn>
           </ButtonGroup>

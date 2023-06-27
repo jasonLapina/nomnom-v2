@@ -1,9 +1,11 @@
-import { Box, Grid, HStack, Icon, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Grid, HStack, Icon, Image, Text } from "@chakra-ui/react";
 import MyHeading from "../../shared/UI/MyHeading";
 
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { BsFillCartPlusFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/cart";
+import MyBtn from "../../shared/UI/MyBtn";
+import { useRouter } from "next/router";
 
 const featuredFood = [
   {
@@ -59,7 +61,13 @@ const featuredFood = [
 function FeaturedFood() {
   const dispatch = useDispatch();
 
+  const router = useRouter();
+
   const addHandler = (item) => dispatch(addToCart(item));
+  const buyHandler = (item) => {
+    dispatch(addToCart(item));
+    router.push("/checkout");
+  };
 
   return (
     <Box>
@@ -109,17 +117,19 @@ function FeaturedFood() {
               >
                 {item.title}
               </Text>
-
-              <Icon
-                bgColor='salmon'
-                p='8px'
-                borderRadius='full'
-                fontSize='56px'
-                as={AiOutlineShoppingCart}
-                color='white'
-                cursor='pointer'
-                onClick={() => addHandler(item)}
-              />
+              <HStack flexWrap='wrap'>
+                <MyBtn onClick={() => addHandler(item)} bgColor='salmon'>
+                  Add to cart
+                </MyBtn>
+                <MyBtn
+                  variant='outline'
+                  color='white'
+                  borderColor='salmon'
+                  onClick={() => buyHandler(item)}
+                >
+                  Buy now
+                </MyBtn>
+              </HStack>
             </Box>
             <Text
               fontSize='24px'

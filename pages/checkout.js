@@ -47,8 +47,10 @@ function Checkout() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (typeof window !== "undefined")
-      setAddress(localStorage.getItem("address"));
+    if (typeof window !== "undefined") {
+      const savedAddress = localStorage.getItem("address");
+      if (savedAddress) setAddress(savedAddress);
+    }
   }, []);
 
   const toast = useToast();
@@ -57,20 +59,20 @@ function Checkout() {
     e.preventDefault();
 
     if (!address.trim())
-      toast({
+      return toast({
         title: "Put in your address.",
         status: "error",
         position: "top",
       });
 
     if (time === "other" && !otherTime.trim())
-      toast({
+      return toast({
         title: "Specify time.",
         status: "error",
         position: "top",
       });
     if (day === "other" && !otherDay.trim())
-      toast({
+      return toast({
         title: "Specify date.",
         status: "error",
         position: "top",
