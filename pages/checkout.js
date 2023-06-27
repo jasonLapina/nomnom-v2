@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import MyHeading from "../shared/UI/MyHeading";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MyBtn from "../shared/UI/MyBtn";
 import MyInput from "../shared/UI/MyInput";
 import { clearCart } from "../store/cart";
@@ -45,6 +45,11 @@ function Checkout() {
   const [time, setTime] = useState("Now");
   const [address, setAddress] = useState("");
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (typeof window !== "undefined")
+      setAddress(localStorage.getItem("address"));
+  }, []);
 
   const toast = useToast();
 
@@ -79,6 +84,18 @@ function Checkout() {
     });
 
     dispatch(clearCart());
+  };
+
+  const saveAddressHandler = () => {
+    if (!address.trim()) return;
+    else {
+      toast({
+        title: "Address saved!",
+        status: "success",
+        position: "top",
+      });
+      localStorage.setItem("address", address);
+    }
   };
 
   return (
@@ -162,7 +179,12 @@ function Checkout() {
                 onChange={(e) => setAddress(e.target.value)}
                 placeholder='delivery address'
               />
-              <Button borderColor='salmon' variant='outline' mt='8px'>
+              <Button
+                onClick={saveAddressHandler}
+                borderColor='salmon'
+                variant='outline'
+                mt='8px'
+              >
                 Save address
               </Button>
             </Box>

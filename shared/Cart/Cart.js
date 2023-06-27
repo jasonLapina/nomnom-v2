@@ -74,9 +74,11 @@ function Cart() {
 
           <DrawerBody>
             <CartItems />
-            <Text mt='24px' fontSize='22px' textAlign='right'>
-              <strong>Total</strong>: {getTotal}
-            </Text>
+            {cart.length !== 0 && (
+              <Text mt='24px' fontSize='22px' textAlign='right'>
+                <strong>Total</strong>: {getTotal}
+              </Text>
+            )}
           </DrawerBody>
 
           <DrawerFooter>
