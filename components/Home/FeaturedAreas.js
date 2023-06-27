@@ -65,6 +65,7 @@ function FeaturedAreas() {
               {item.str}
             </Text>
             <Image
+              loading='lazy'
               h='200px'
               w='320px'
               src={item.image}
@@ -72,6 +73,7 @@ function FeaturedAreas() {
               borderRadius='10px'
             />
             <Image
+              loading='lazy'
               pos='absolute'
               h='100px'
               w='160px'

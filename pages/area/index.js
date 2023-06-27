@@ -28,6 +28,7 @@ function Area() {
             href={`/area/${item.strArea}`}
           >
             <Image
+              loading='lazy'
               alt={item.strArea + "flag"}
               h='100%'
               w='100%'

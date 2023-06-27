@@ -85,6 +85,7 @@ function RandomMeal() {
           </Box>
 
           <Image
+            loading='lazy'
             mx='auto'
             src={meal.image}
             alt={meal.title}

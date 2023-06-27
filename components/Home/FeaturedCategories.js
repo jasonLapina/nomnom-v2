@@ -41,6 +41,7 @@ function FeaturedCategories() {
             href={`/categories/${item.text}`}
           >
             <Image
+              loading='lazy'
               src={item.image}
               cursor='pointer'
               alt={item.text}

@@ -23,6 +23,7 @@ function CategoryItem({ category }) {
           src={category.strCategoryThumb}
           borderRadius='lg'
           mx='auto'
+          loading='lazy'
         />
         <Stack mt='6' spacing='3'>
           <Heading size='md'>{category.strCategory}</Heading>

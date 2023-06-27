@@ -33,6 +33,7 @@ function MealItem({ meal }) {
     <Card maxW='sm'>
       <CardBody>
         <Image
+          loading='lazy'
           alt={meal.title}
           h='344px'
           w='320px'

@@ -81,6 +81,7 @@ function FeaturedFood() {
         {featuredFood.map((item) => (
           <Box role='group' transition='all .4s' pos='relative' key={item.id}>
             <Image
+              loading='lazy'
               borderRadius='10px'
               alt={item.title}
               src={item.image}
