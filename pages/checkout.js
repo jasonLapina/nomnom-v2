@@ -10,11 +10,14 @@ import {
   RadioGroup,
   Stack,
   Radio,
+  useToast,
 } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import MyHeading from "../shared/UI/MyHeading";
 import { useState } from "react";
 import MyBtn from "../shared/UI/MyBtn";
+import MyInput from "../shared/UI/MyInput";
+import { clearCart } from "../store/cart";
 
 function Checkout() {
   const cart = useSelector((state) => state.cart);
@@ -36,15 +39,59 @@ function Checkout() {
     return itemPrices.reduce((total, current) => total + current, 0);
   };
 
+  const [day, setDay] = useState("Today");
+  const [otherDay, setOtherDay] = useState("");
+  const [otherTime, setOtherTime] = useState("");
+  const [time, setTime] = useState("Now");
+  const [address, setAddress] = useState("");
+  const dispatch = useDispatch();
+
+  const toast = useToast();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    if (!address.trim())
+      toast({
+        title: "Put in your address.",
+        status: "error",
+        position: "top",
+      });
+
+    if (time === "other" && !otherTime.trim())
+      toast({
+        title: "Specify time.",
+        status: "error",
+        position: "top",
+      });
+    if (day === "other" && !otherDay.trim())
+      toast({
+        title: "Specify date.",
+        status: "error",
+        position: "top",
+      });
+
+    toast({
+      title: "Got your order!",
+      description: "Give us 10-20 min.",
+      status: "success",
+      position: "top",
+    });
+
+    dispatch(clearCart());
+  };
+
   return (
     <Box>
       <MyHeading>Checkout</MyHeading>
       <Grid columnGap='24px' gridTemplateColumns='7fr 3fr'>
         <Box
+          onSubmit={submitHandler}
           borderRadius='10px'
           px='16px'
           py='8px'
           boxShadow='4px 8px 8px RGBA(0,0,0,.24)'
+          as='form'
         >
           <Box>
             <Text fontSize='24px' fontWeight='bold'>
@@ -55,30 +102,66 @@ function Checkout() {
               <Text>Time:</Text>
               <Grid gridTemplateColumns='1fr 1fr' gap='24px'>
                 <div>
-                  <Select onChange={datesHandler} placeholder='Today'>
+                  <Select
+                    _focus={{
+                      borderColor: "salmon",
+                      boxShadow: "1px 1px salmon",
+                    }}
+                    onChange={(e) => {
+                      setDay(e.target.value);
+                      datesHandler(e);
+                    }}
+                    placeholder='Today'
+                    value={day}
+                  >
                     <option value='option2'>Tomorrow</option>
                     <option value='other'>Other</option>
                   </Select>
                   {showOtherDate && (
-                    <Input mt='16px' placeholder='specify date' />
+                    <MyInput
+                      value={otherDay}
+                      onChange={(e) => setOtherDay(e.target.value)}
+                      mt='16px'
+                      placeholder='specify date'
+                    />
                   )}
                 </div>
 
                 <div>
-                  <Select onChange={timeHandler} placeholder='Now'>
-                    <option value='option1'>in 1 hour</option>
-                    <option value='option2'>in 2 hours</option>
+                  <Select
+                    _focus={{
+                      borderColor: "salmon",
+                      boxShadow: "1px 1px salmon",
+                    }}
+                    onChange={(e) => {
+                      setTime(e.target.value);
+                      timeHandler(e);
+                    }}
+                    placeholder='Now'
+                    value={time}
+                  >
+                    <option value='1hr'>in 1 hour</option>
+                    <option value='2hr'>in 2 hours</option>
                     <option value='other'>Other</option>
                   </Select>
                   {showOtherTime && (
-                    <Input mt='16px' placeholder='specify time' />
+                    <MyInput
+                      mt='16px'
+                      value={otherTime}
+                      onChange={(e) => setOtherTime(e.target.value)}
+                      placeholder='specify time'
+                    />
                   )}
                 </div>
               </Grid>
             </Box>
             <Box mt='16px'>
               <Text>Address:</Text>
-              <Input placeholder='delivery address' />
+              <MyInput
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                placeholder='delivery address'
+              />
               <Button borderColor='salmon' variant='outline' mt='8px'>
                 Save address
               </Button>
@@ -103,7 +186,12 @@ function Checkout() {
               </Stack>
             </RadioGroup>
           </Box>
-          <MyBtn bgColor='salmon' w='100%'>
+          <MyBtn
+            type='submit'
+            isDisabled={cart.length === 0}
+            bgColor='salmon'
+            w='100%'
+          >
             Place Order
           </MyBtn>
         </Box>

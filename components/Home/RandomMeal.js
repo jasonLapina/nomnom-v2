@@ -1,7 +1,5 @@
-import { Box, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, Icon, Image, Text, VStack } from "@chakra-ui/react";
 import MyHeading from "../../shared/UI/MyHeading";
-
-import Link from "next/link";
 
 import axiosInstance from "../../shared/axiosInstance";
 import MyBtn from "../../shared/UI/MyBtn";
@@ -42,7 +40,7 @@ function RandomMeal() {
       </Text>
 
       <VStack mt='24px'>
-        <Box pos='relative' as={Link} href={meal.id}>
+        <Box pos='relative'>
           <Text
             fontSize='48px'
             fontWeight='bold'
@@ -55,11 +53,11 @@ function RandomMeal() {
             fontSize='32px'
             bgColor='bisque'
             w='fit-content'
-            transform='translateX(40px)'
-            px='16px'
+            transform='translateX(40px) rotate(-20deg) '
+            px='32px'
             borderRadius='20px'
             pos='absolute'
-            right='24px'
+            left='-80px'
             top='80px'
           >
             ${meal.price}
@@ -67,7 +65,6 @@ function RandomMeal() {
 
           <Image
             mx='auto'
-            maxW='600px'
             src={meal.image}
             alt={meal.title}
             borderRadius='10px'
@@ -99,8 +96,16 @@ function RandomMeal() {
               <strong>Area</strong>: {meal.area}
             </Text>
           </VStack>
+          <MyBtn pos='absolute' right='8px' bottom='8px' bgColor='salmon'>
+            Add to cart
+          </MyBtn>
         </Box>
-        <MyBtn onClick={randomizeHandler} bgColor='salmon' mt='16px'>
+        <MyBtn
+          onClick={randomizeHandler}
+          variant='outline'
+          borderColor='salmon'
+          mt='16px'
+        >
           Randomize
         </MyBtn>
       </VStack>
