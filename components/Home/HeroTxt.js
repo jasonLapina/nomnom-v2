@@ -17,7 +17,7 @@ function HeroTxt() {
       </Text>
       <HStack gap='16px' mt='40px'>
         {/* <Button>Discover</Button> */}
-        <MyBtn bgColor='salmon'>Sign Up</MyBtn>
+        <MyBtn bgColor='salmon'>Sign up</MyBtn>
         <MyBtn
           onClick={() =>
             window.scrollTo({

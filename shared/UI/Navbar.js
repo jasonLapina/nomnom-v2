@@ -9,10 +9,15 @@ import {
   MenuGroup,
   MenuOptionGroup,
   MenuDivider,
+  Icon,
+  HStack,
+  Center,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import Link from "next/link";
 import Cart from "../Cart/Cart";
+
+import { AiOutlineUser } from "react-icons/ai";
 
 export const navItems = [
   { text: "Home", path: "/" },
@@ -80,9 +85,12 @@ function Navbar() {
             </MenuItem>
           </MenuList>
         </Menu>
-        <Box ml='auto'>
+        <HStack gap='24px' ml='auto'>
+          <Box cursor='pointer' as={Link} href='/auth'>
+            <Icon color='salmon' fontSize='32px' as={AiOutlineUser} />
+          </Box>
           <Cart />
-        </Box>
+        </HStack>
       </Box>
     </Box>
   );
