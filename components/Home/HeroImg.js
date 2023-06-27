@@ -1,9 +1,9 @@
 import { Box, Image } from "@chakra-ui/react";
 
 const dummyImages = [
-  "https://nomnom-kappa.vercel.app/static/media/hero1.a3861ff6cd5adf172eab.webp",
-  "https://nomnom-kappa.vercel.app/static/media/hero3.1923697d189c0c71f344.webp",
-  "https://nomnom-kappa.vercel.app/static/media/hero2.926bff97dd231472206e.webp",
+  "https://raw.githubusercontent.com/jasonLapina/nomnom/master/src/assets/hero1.webp",
+  "https://raw.githubusercontent.com/jasonLapina/nomnom/master/src/assets/hero3.webp",
+  "https://raw.githubusercontent.com/jasonLapina/nomnom/master/src/assets/hero2.webp",
 ];
 function HeroImg() {
   return (
