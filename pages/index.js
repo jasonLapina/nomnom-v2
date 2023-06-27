@@ -14,9 +14,9 @@ export default function Home() {
       </Head>
       <VStack alignItems='initial' gap='120px'>
         <Hero />
+        <FeaturedFood />
         <FeaturedCategories />
         <FeaturedAreas />
-        <FeaturedFood />
         <RandomMeal />
       </VStack>
     </>

@@ -12,6 +12,7 @@ import {
   Button,
   HStack,
   Circle,
+  Text,
 } from "@chakra-ui/react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import CartItems from "./CartItems";
@@ -26,6 +27,16 @@ function Cart() {
   const clearCartHandler = () => dispatch(clearCart());
   const cart = useSelector((state) => state.cart);
 
+  const itemQuantities = cart.map((item) => item.quantity);
+  const totalCartItems = itemQuantities.reduce(
+    (acc, curVal) => acc + curVal,
+    0
+  );
+
+  const getTotal = cart
+    .map((item) => item.price)
+    .reduce((acc, cur) => acc + cur, 0);
+
   return (
     <>
       <Box pos='relative'>
@@ -38,7 +49,7 @@ function Cart() {
             right='-8px'
             top='-12px'
           >
-            {cart.length}
+            {totalCartItems}
           </Circle>
         )}
         <Icon
@@ -63,6 +74,9 @@ function Cart() {
 
           <DrawerBody>
             <CartItems />
+            <Text mt='24px' fontSize='22px' textAlign='right'>
+              <strong>Total</strong>: {getTotal}
+            </Text>
           </DrawerBody>
 
           <DrawerFooter>
