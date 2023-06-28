@@ -11,15 +11,15 @@ const users = [
 
 function HeroCustomers() {
   return (
-    <HStack mt='40px' alignItems='center'>
-      <HStack ml='32px'>
+    <HStack mt='40px' alignItems='center' flexWrap='wrap'>
+      <HStack justifyContent='center' ml={{ base: "8", sm: "32px" }}>
         {users.map((item, i) => (
           <Image
             borderRadius='full'
             src={item}
             key={i}
             alt='random user'
-            w='64px'
+            w={{ base: "56px", sm: "64px" }}
             border='4px solid bisque'
             ml='-32px'
           />

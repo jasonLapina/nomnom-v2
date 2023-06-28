@@ -1,10 +1,10 @@
-import { Box, Button, HStack, Heading, Text } from "@chakra-ui/react";
+import { Box, HStack, Text } from "@chakra-ui/react";
 import MyHeading from "../../shared/UI/MyHeading";
 import HeroCustomers from "./HeroCustomers";
 import MyBtn from "../../shared/UI/MyBtn";
 function HeroTxt() {
   return (
-    <Box mt='80px'>
+    <Box mt={{ sm: "24px", md: "40px", lg: "64px", xl: "80px" }}>
       <MyHeading textAlign='left' mt='0px' mb='24px'>
         Lorem Ipsum
       </MyHeading>

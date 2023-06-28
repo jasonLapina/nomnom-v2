@@ -35,7 +35,7 @@ function FeaturedAreas() {
 
       <Grid
         justifyItems='center'
-        gap='24px'
+        gap='56px 24px'
         gridTemplateColumns='repeat(auto-fit,minmax(320px,1fr))'
       >
         {areas.map((item) => (

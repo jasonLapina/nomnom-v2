@@ -26,7 +26,9 @@ function FeaturedCategories() {
       <MyHeading>Featured Categories</MyHeading>
       <Grid
         justifyItems='center'
-        gridTemplateColumns='repeat(auto-fit,minmax(320px,1fr))'
+        gridTemplateColumns='repeat(auto-fit,minmax(300px,1fr))'
+        gap='24px 16px'
+        justifyContent='center'
       >
         {featuredCategories.map((item) => (
           <Box
@@ -45,7 +47,7 @@ function FeaturedCategories() {
               src={item.image}
               cursor='pointer'
               alt={item.text}
-              w='400px'
+              w={{ base: "300px", sm: "400px" }}
               h='320px'
               borderRadius='20px'
               transition='all .4s'

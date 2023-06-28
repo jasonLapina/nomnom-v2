@@ -76,7 +76,8 @@ function FeaturedFood() {
         justifyItems='center'
         columnGap='16px'
         rowGap='32px'
-        gridTemplateColumns='repeat(4,1fr)'
+        gridTemplateColumns='repeat(auto-fit,minmax(300px,1fr))'
+        // gridTemplateColumns='repeat(4,1fr)'
       >
         {featuredFood.map((item) => (
           <Box role='group' transition='all .4s' pos='relative' key={item.id}>

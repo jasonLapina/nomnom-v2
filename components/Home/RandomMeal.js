@@ -58,7 +58,7 @@ function RandomMeal() {
       <VStack mt='24px'>
         <Box pos='relative'>
           <Text
-            fontSize='48px'
+            fontSize={{ base: "32px", sm: "48px" }}
             fontWeight='bold'
             textShadow='2px 2px white'
             mb='16px'
