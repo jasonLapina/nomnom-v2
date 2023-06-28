@@ -31,7 +31,11 @@ function HeroImg() {
             transition='all .4s'
             _hover={{
               zIndex: 4,
-              transform: `translate(${i * 160}px,${i * 34}px) scale(1.1)`,
+              transform: {
+                md: `translate(${i * 80}px,${i * 80}px) scale(1.1)`,
+                lg: `translate(${i * 120}px,${i * 34}px) scale(1.1)`,
+                xl: `translate(${i * 160}px,${i * 40}px) scale(1.1)`,
+              },
             }}
           />
         ))}
