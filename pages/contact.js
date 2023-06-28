@@ -18,10 +18,9 @@ function contact() {
       <MyHeading>Contact us</MyHeading>
 
       <Grid
-        minH='400px'
-        minW='1080px'
+        maxW='1080px'
         mx='auto'
-        gridTemplateColumns='35fr 65fr'
+        gridTemplateColumns={{ base: "1fr", md: "35fr 65fr" }}
       >
         <Box py='16px' px='24px'>
           <Heading textAlign='center' fontWeight='normal'>

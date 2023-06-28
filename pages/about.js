@@ -7,7 +7,11 @@ function about() {
   return (
     <Box>
       <MyHeading>About us</MyHeading>
-      <Grid alignItems='center' rowGap='40px' gridTemplateColumns='1fr 1fr'>
+      <Grid
+        alignItems='center'
+        rowGap='40px'
+        gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }}
+      >
         {aboutUs.map((item) => (
           <Box key={item}>
             <Heading>{item}</Heading>
