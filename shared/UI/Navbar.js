@@ -1,23 +1,7 @@
-import {
-  Box,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-  Icon,
-  HStack,
-  Center,
-} from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
-import Link from "next/link";
-import Cart from "../Cart/Cart";
+import { Box, useMediaQuery } from "@chakra-ui/react";
 
-import { AiOutlineUser } from "react-icons/ai";
+import DesktopNav from "./DesktopNav";
+import MobileNav from "./MobileNav";
 
 export const navItems = [
   { text: "Home", path: "/" },
@@ -32,6 +16,8 @@ export const navItems = [
 ];
 
 function Navbar() {
+  const [isMobile] = useMediaQuery("(max-width: 767px)");
+
   return (
     <Box
       boxShadow='0 8px 8px RGBA(0,0,0,.24)'
@@ -51,46 +37,10 @@ function Navbar() {
         display='flex'
         alignItems='center'
         gap='32px'
+        px='16px'
       >
-        {navItems.map((item) => (
-          <Button
-            _hover={{ bgColor: "bisque" }}
-            as={Link}
-            href={item.path}
-            key={item.text}
-            variant='ghost'
-          >
-            {item.text}
-          </Button>
-        ))}
-        <Menu>
-          <MenuButton
-            as={Button}
-            variant='outline'
-            rightIcon={<ChevronDownIcon />}
-            borderColor='salmon'
-          >
-            Browse by
-          </MenuButton>
-          <MenuList>
-            <MenuItem
-              as={Link}
-              href='/categories'
-              _hover={{ bgColor: "bisque" }}
-            >
-              Category
-            </MenuItem>
-            <MenuItem as={Link} href='/area' _hover={{ bgColor: "bisque" }}>
-              Area
-            </MenuItem>
-          </MenuList>
-        </Menu>
-        <HStack gap='24px' ml='auto'>
-          <Box cursor='pointer' as={Link} href='/auth'>
-            <Icon color='salmon' fontSize='32px' as={AiOutlineUser} />
-          </Box>
-          <Cart />
-        </HStack>
+        {!isMobile && <DesktopNav navItems={navItems} />}
+        {isMobile && <MobileNav navItems={navItems} />}
       </Box>
     </Box>
   );

@@ -15,6 +15,8 @@ function Area() {
         columnGap='16px'
         rowGap='32px'
         gridTemplateColumns='repeat(auto-fit, minmax(280px, 1fr))'
+        justifyItems='center'
+        justifyContent='center'
       >
         {areasData.map((item) => (
           <Box

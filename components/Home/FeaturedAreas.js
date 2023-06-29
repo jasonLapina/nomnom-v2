@@ -37,6 +37,7 @@ function FeaturedAreas() {
         justifyItems='center'
         gap='56px 24px'
         gridTemplateColumns='repeat(auto-fit,minmax(320px,1fr))'
+        justifyContent='center'
       >
         {areas.map((item) => (
           <Box
@@ -67,7 +68,7 @@ function FeaturedAreas() {
             <Image
               loading='lazy'
               h='200px'
-              w='320px'
+              w={{ base: "280px", sm: "320px" }}
               src={item.image}
               alt={item.str + "food"}
               borderRadius='10px'

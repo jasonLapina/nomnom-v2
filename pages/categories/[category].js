@@ -10,9 +10,8 @@ function CategoryPage(props) {
   return (
     <Box>
       <MyHeading>{category} Meals</MyHeading>
-
       <Grid
-        gridTemplateColumns='1fr 1fr 1fr'
+        gridTemplateColumns='repeat(auto-fit,minmax(280px,1fr))'
         justifyItems='center'
         rowGap='40px'
         columnGap='16px'

@@ -26,19 +26,24 @@ function contact() {
           <Heading textAlign='center' fontWeight='normal'>
             Our <strong>Socials</strong>
           </Heading>
-          <VStack alignItems='center' gap='16px' fontSize='40px'>
+          <Grid
+            justifyItems='center'
+            gridTemplateColumns={{ base: "1fr 1fr", md: "1fr" }}
+            rowGap={{ base: "16px" }}
+            fontSize='40px'
+          >
             <Icon as={BsFacebook} color='facebook.500' />
             <Icon as={BsDiscord} color='#7289da' />
             <Icon as={BsTwitter} color='twitter.500' />
             <Icon as={BsYoutube} color='red.500' />
-          </VStack>
+          </Grid>
         </Box>
         <Box py='16px' px='24px'>
           <Heading textAlign='center' fontWeight='normal'>
             Get in <strong>touch</strong> via Email
           </Heading>
           <Box>
-            <HStack>
+            <HStack flexWrap={{ base: "wrap", sm: "nowrap" }}>
               <Input
                 placeholder='name'
                 _focus={{

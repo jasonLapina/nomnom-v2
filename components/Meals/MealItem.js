@@ -15,7 +15,8 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/cart";
 import { useRouter } from "next/router";
 
-function MealItem({ meal }) {
+function MealItem(props) {
+  const { meal } = props;
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -30,13 +31,13 @@ function MealItem({ meal }) {
   };
 
   return (
-    <Card maxW='sm'>
+    <Card>
       <CardBody>
         <Image
           loading='lazy'
           alt={meal.title}
           h='344px'
-          w='320px'
+          w={{ base: "100%", sm: "320px" }}
           src={meal.image}
           borderRadius='lg'
           mx='auto'
@@ -56,8 +57,16 @@ function MealItem({ meal }) {
       </CardBody>
       <Divider />
       <CardFooter>
-        <HStack w='100%' justifyContent='space-between'>
-          <ButtonGroup spacing='2'>
+        <HStack
+          w='100%'
+          justifyContent='space-between'
+          flexWrap={{ base: "wrap", sm: "nowrap" }}
+        >
+          <ButtonGroup
+            flexWrap={{ base: "wrap", sm: "nowrap" }}
+            rowGap='16px'
+            spacing='2'
+          >
             <MyBtn onClick={addToCartHandler} bgColor='salmon'>
               Add to cart
             </MyBtn>

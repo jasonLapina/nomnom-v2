@@ -77,6 +77,7 @@ function FeaturedFood() {
         columnGap='16px'
         rowGap='32px'
         gridTemplateColumns='repeat(auto-fit,minmax(300px,1fr))'
+        justifyContent='center'
         // gridTemplateColumns='repeat(4,1fr)'
       >
         {featuredFood.map((item) => (

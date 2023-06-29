@@ -7,9 +7,23 @@ function Categories({ categories }) {
   return (
     <>
       <MyHeading>Categories</MyHeading>
-      <Grid rowGap='40px' columnGap='16px' gridTemplateColumns='1fr 1fr 1fr'>
-        {categories.map((item) => (
-          <CategoryItem key={item.idCategory} category={item} />
+      <Grid
+        bgColor='bisque'
+        borderRadius='20px'
+        px='24px'
+        py='12px'
+        rowGap='40px'
+        columnGap='16px'
+        gridTemplateColumns='repeat(auto-fit,minmax(280px,1fr))'
+        justifyContent='center'
+      >
+        {categories.map((item, i) => (
+          <CategoryItem
+            key={item.idCategory}
+            bgColor={i % 2 ? "blackAlpha.700" : "whiteAlpha.700"}
+            color={i % 2 ? "white" : "black"}
+            category={item}
+          />
         ))}
         {/* <CategoryItem category={categories[0]} /> */}
       </Grid>

@@ -10,10 +10,18 @@ function AreaPage({ area, meals }) {
       <MyHeading>{area} Meals</MyHeading>
 
       <Grid
-        gridTemplateColumns='1fr 1fr 1fr'
+        gridTemplateColumns={{
+          base: "repeat(auto-fit,minmax(280px,1fr))",
+          md: "repeat(auto-fit,minmax(360px,1fr))",
+        }}
         justifyItems='center'
         rowGap='40px'
         columnGap='16px'
+        borderRadius='20px'
+        bgColor='bisque'
+        py='12px'
+        px='24px'
+        justifyContent='center'
       >
         {meals.map((item) => (
           <MealItem key={item.id} meal={item} />

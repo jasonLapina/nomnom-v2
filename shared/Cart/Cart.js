@@ -21,7 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../../store/cart";
 import Link from "next/link";
 
-function Cart() {
+function Cart({ placement = "right" }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const dispatch = useDispatch();
   const clearCartHandler = () => dispatch(clearCart());
@@ -64,7 +64,7 @@ function Cart() {
       <Drawer
         blockScrollOnMount={false}
         isOpen={isOpen}
-        placement='right'
+        placement={placement}
         onClose={onClose}
       >
         <DrawerOverlay />

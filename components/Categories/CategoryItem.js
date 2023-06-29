@@ -12,18 +12,21 @@ import {
 import Link from "next/link";
 
 import MyBtn from "../../shared/UI/MyBtn";
-function CategoryItem({ category }) {
+function CategoryItem(props) {
+  const { category } = props;
   return (
-    <Card maxH='640px' maxW='480px'>
+    <Card bgColor='black' color='white' maxH='640px' maxW='480px' {...props}>
       <CardBody>
         <Image
           alt={category.strCategory}
           h='344px'
-          w='320px'
+          w='100%'
           src={category.strCategoryThumb}
           borderRadius='lg'
           mx='auto'
           loading='lazy'
+          objectFit='cover'
+          objectPosition='center'
         />
         <Stack mt='6' spacing='3'>
           <Heading size='md'>{category.strCategory}</Heading>
