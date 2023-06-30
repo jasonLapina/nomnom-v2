@@ -49,7 +49,7 @@ function Footer() {
             fontSize='14px'
             px='24px'
           >
-            Copyright © 2023 by Bag-O, Inc. All rights reserved.{" "}
+            Copyright © 2023 by NomNom, Inc. All rights reserved.{" "}
           </Text>
         </Box>
         <Box>
@@ -61,7 +61,7 @@ function Footer() {
               Santa Rosa, Laguna. Tabi tabi st., jan-jan lang building.
             </Text>
             <Text>+(63) 9563090839</Text>
-            <a>Bag-O@bagomail.com</a>
+            <a>NomNom@jmail.com</a>
           </Box>
         </Box>
         <Box>
