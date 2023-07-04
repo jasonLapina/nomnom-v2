@@ -11,6 +11,8 @@ function SignupForm({ onLogin }) {
       gap='16px'
       alignItems='normal'
       as='form'
+      maxW='780px'
+      mx='auto'
     >
       <HStack>
         <MyInput placeholder='name' />
