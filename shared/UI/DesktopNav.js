@@ -13,6 +13,7 @@ import Link from "next/link";
 import Cart from "../Cart/Cart";
 
 import { AiOutlineUser } from "react-icons/ai";
+import Searchbar from "./Searchbar";
 function DesktopNav({ navItems }) {
   return (
     <>
@@ -46,6 +47,7 @@ function DesktopNav({ navItems }) {
         </MenuList>
       </Menu>
       <HStack gap='24px' ml='auto'>
+        <Searchbar />
         <Box cursor='pointer' as={Link} href='/auth'>
           <Icon color='salmon' fontSize='32px' as={AiOutlineUser} />
         </Box>

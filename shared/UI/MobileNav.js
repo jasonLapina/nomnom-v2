@@ -22,6 +22,7 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 import { AiOutlineUser } from "react-icons/ai";
 import Link from "next/link";
 import Cart from "../Cart/Cart";
+import Searchbar from "./Searchbar";
 function MobileNav({ navItems }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -30,30 +31,13 @@ function MobileNav({ navItems }) {
       <Button bgColor='bisque' onClick={onOpen}>
         Menu
       </Button>
-      <Menu>
-        <MenuButton
-          as={Button}
-          variant='outline'
-          rightIcon={<ChevronDownIcon />}
-          borderColor='salmon'
-        >
-          Browse by
-        </MenuButton>
-        <MenuList>
-          <MenuItem as={Link} href='/categories' _hover={{ bgColor: "bisque" }}>
-            Category
-          </MenuItem>
-          <MenuItem as={Link} href='/area' _hover={{ bgColor: "bisque" }}>
-            Area
-          </MenuItem>
-        </MenuList>
-      </Menu>
+      <Searchbar />
+
       <Drawer isOpen={isOpen} placement='left' onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>Menu</DrawerHeader>
-
           <DrawerBody>
             <VStack gap='16px'>
               {navItems.map((item) => {
@@ -68,18 +52,9 @@ function MobileNav({ navItems }) {
                   </Button>
                 );
               })}
-              <HStack
-                as={Link}
-                href='/auth'
-                fontSize='18px'
-                gap='16px'
-                onClick={onClose}
-                justify='center'
-                fontWeight='bold'
-              >
-                <Text>Account</Text>
-                <Icon as={AiOutlineUser} />
-              </HStack>
+              <Button onClick={onClose} variant='ghost' fontSize='18px'>
+                <Link href='/auth'>Account</Link>
+              </Button>
             </VStack>
           </DrawerBody>
         </DrawerContent>

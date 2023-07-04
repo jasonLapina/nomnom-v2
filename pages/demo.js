@@ -1,56 +1,49 @@
-import { Box, HStack, Icon, Text, VStack } from "@chakra-ui/react";
-import { GiGraduateCap, GiSportMedal } from "react-icons/gi";
-import { AiOutlineMail } from "react-icons/ai";
+import { useColorMode } from "@chakra-ui/color-mode";
+import { HStack, Stack, Flex, Box, Text } from "@chakra-ui/layout";
+import { useMediaQuery } from "@chakra-ui/media-query";
+import React from "react";
+import { AiFillHtml5 } from "react-icons/ai";
+import { BiLogoCss3, BiLogoPython } from "react-icons/bi";
+import { DiJavascript } from "react-icons/di";
+import Icon from "@chakra-ui/icon";
+import { Image } from "@chakra-ui/react";
 
-function demo() {
-  const content = [
-    {
-      text: "Education",
-      icon: GiGraduateCap,
-    },
-    {
-      text: "Accomplishments",
-      icon: GiSportMedal,
-    },
-    {
-      text: "Contact me",
-      icon: AiOutlineMail,
-    },
-  ];
+function Header() {
+  const { colorMode } = useColorMode();
+  const isDark = colorMode === "dark";
+
+  const [desktop] = useMediaQuery("(min-width:600px)");
 
   return (
-    <HStack gap='16px'>
-      {content.map((item, i) => (
-        <Box
-          p='40px'
-          bgColor={i === content.length - 1 ? "blue.100" : "red.100"}
-          w='320px'
-          key={item.text}
-          borderRadius='10px'
-          role='group'
+    <HStack padding='5' spacing='100px' justify='center' alignItems='center'>
+      <Box mt={desktop ? "0" : "0"} align='flex-start'>
+        <Text fontSize='5xl' fontWeight='semibold'>
+          Hi, I am
+        </Text>
+        <Text
+          fontSize='7xl'
+          fontWeight='bold'
+          bgGradient='linear(to-r, cyan.400, blue.500, purple.600)'
+          bgClip='text'
         >
-          <VStack gap='24px' alignItems='start'>
-            <Icon fontSize='40px' as={item.icon} />
-            <Text>{item.text}</Text>
-            <Text
-              transition='all .4s'
-              _groupHover={{
-                opacity: 1,
-                transform: "translateY(0)",
-              }}
-              opacity='0'
-              transform='translateY(80px)'
-            >
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur
-              sequi optio, neque laboriosam similique hic odit nobis iste rem
-              placeat dolor saepe iusto ducimus quo est harum doloribus
-              praesentium quam!
-            </Text>
-          </VStack>
-        </Box>
-      ))}
+          Aira Marie Ladera
+        </Text>
+        <Text color={isDark ? "gray.200" : "gray.900"}>
+          senior Computer Engineering Student at FEU Institute of Technology
+        </Text>
+        <HStack mt='100' spacing='12'>
+          <Icon as={AiFillHtml5} boxSize='50' />
+          <Icon as={BiLogoCss3} boxSize='50' />
+          <Icon as={DiJavascript} boxSize='50' />
+          <Icon as={BiLogoPython} boxSize='50' />
+        </HStack>
+      </Box>
+      <Image
+        src='https://github.com/ariaml/portfolio-try-2/blob/main/components/aira2.png?raw=true'
+        alt='Aira'
+      />
     </HStack>
   );
 }
 
-export default demo;
+export default Header;
