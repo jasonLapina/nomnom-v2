@@ -84,7 +84,7 @@ function RandomMeal() {
             maxH='88px'
             overflowY='auto'
           >
-            {meal.title.trim()}
+            {isLoading ? "Loading..." : meal.title.trim()}
           </Text>
           <Box
             fontSize='32px'
