@@ -1,4 +1,12 @@
-import { Box, HStack, Icon, Image, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  HStack,
+  Icon,
+  Image,
+  Spinner,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import MyHeading from "../../shared/UI/MyHeading";
 
 import axiosInstance from "../../shared/axiosInstance";
@@ -20,8 +28,10 @@ const dummyMeal = {
 
 function RandomMeal() {
   const [meal, setMeal] = useState(dummyMeal);
+  const [isLoading, setIsLoading] = useState(false);
 
   const randomizeHandler = async () => {
+    setIsLoading(true);
     const { data } = await axiosInstance.get("random.php");
     const randomMeal = {
       id: data.meals[0].idMeal,
@@ -32,6 +42,10 @@ function RandomMeal() {
       price: Number(data.meals[0].idMeal.slice(0, 2)),
     };
     setMeal(randomMeal);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
   };
 
   const dispatch = useDispatch();
@@ -67,6 +81,8 @@ function RandomMeal() {
             px='16px'
             py='8px'
             maxW='600px'
+            maxH='88px'
+            overflowY='auto'
           >
             {meal.title.trim()}
           </Text>
@@ -80,13 +96,27 @@ function RandomMeal() {
             pos='absolute'
             left='-80px'
             bottom='400px'
+            opacity={isLoading ? 0 : 1}
+            transition='all .2s'
+            zIndex={80}
           >
             ${meal.price}
           </Box>
 
+          <Spinner
+            pos='absolute'
+            left='80px'
+            borderWidth='10px'
+            speed='1s'
+            boxSize='md'
+            opacity={isLoading ? 1 : 0}
+            transition='opacity .2s'
+          />
           <Image
             loading='lazy'
             mx='auto'
+            opacity={!isLoading ? 1 : 0}
+            transition='opacity .2s'
             src={meal.image}
             alt={meal.title}
             borderRadius='10px'
@@ -94,7 +124,12 @@ function RandomMeal() {
             w='600px'
             h='450px'
           />
-          <VStack gap='16px' fontSize='24px'>
+          <VStack
+            gap='16px'
+            transition='all .2s'
+            opacity={isLoading ? 0 : 1}
+            fontSize='24px'
+          >
             <Text
               px='16px'
               py='8px'
@@ -119,7 +154,13 @@ function RandomMeal() {
             </Text>
           </VStack>
 
-          <HStack pos='absolute' right='8px' bottom='8px'>
+          <HStack
+            opacity={isLoading ? 0 : 1}
+            transition='all .2s'
+            pos='absolute'
+            right='8px'
+            bottom='8px'
+          >
             <MyBtn onClick={addToCartHandler} bgColor='salmon'>
               Add to cart
             </MyBtn>

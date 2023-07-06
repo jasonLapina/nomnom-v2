@@ -19,7 +19,7 @@ function FeaturedAreas() {
       str: "Filipino",
       image: "https://cdn.wallpapersafari.com/38/43/KhQwvy.jpg",
       sample:
-        "https://www.lutongpinoyrecipe.com/wp-content/uploads/2020/12/lutong-pinoy-pork-sinigang-1200x675.jpg",
+        "https://scm-assets.constant.co/scm/unilever/e9dc924f238fa6cc29465942875fe8f0/fe9c5b7c-0016-4680-98b3-cef70a92c8ec.png",
     },
     {
       str: "Jamaican",
