@@ -8,17 +8,31 @@ import {
   Divider,
   CardFooter,
   ButtonGroup,
+  Spinner,
 } from "@chakra-ui/react";
 import Link from "next/link";
 
 import MyBtn from "../../shared/UI/MyBtn";
+import { useState } from "react";
 function CategoryItem(props) {
   const { category } = props;
+
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <Card bgColor='black' color='white' maxH='640px' maxW='480px' {...props}>
-      <CardBody>
+      <CardBody pos='relative'>
+        <Spinner
+          speed='1s'
+          top='80px'
+          right='54px'
+          boxSize='200px'
+          pos='absolute'
+          opacity={isLoading ? 1 : 0}
+        />
         <Image
           alt={category.strCategory}
+          opacity={isLoading ? 0 : 1}
           h='344px'
           w='100%'
           src={category.strCategoryThumb}
@@ -27,6 +41,7 @@ function CategoryItem(props) {
           loading='lazy'
           objectFit='cover'
           objectPosition='center'
+          onLoad={() => setIsLoading(false)}
         />
         <Stack mt='6' spacing='3'>
           <Heading size='md'>{category.strCategory}</Heading>

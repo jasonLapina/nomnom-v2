@@ -1,4 +1,4 @@
-import { Box, Grid } from "@chakra-ui/react";
+import { Grid } from "@chakra-ui/react";
 import axiosInstance from "../../shared/axiosInstance";
 import CategoryItem from "../../components/Categories/CategoryItem";
 import MyHeading from "../../shared/UI/MyHeading";
